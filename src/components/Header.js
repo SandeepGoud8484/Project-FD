@@ -9,7 +9,7 @@ const Header = ( ) => {
     return (
 
         <div>
-            <div className="flex justify-between items-center shadow-lg">
+            <div className="flex justify-between items-center shadow-lg w-full fixed top-0 bg-white">
 
                 <div>
                     <img src="https://cdn-icons-png.flaticon.com/128/9561/9561688.png" width="80px" ></img>

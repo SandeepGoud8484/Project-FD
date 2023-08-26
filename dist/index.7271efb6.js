@@ -27231,7 +27231,14 @@ const HomePage = ()=>{
                 lineNumber: 12,
                 columnNumber: 13
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "mt-36",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
+                    fileName: "src/components/HomePage.js",
+                    lineNumber: 14,
+                    columnNumber: 13
+                }, undefined)
+            }, void 0, false, {
                 fileName: "src/components/HomePage.js",
                 lineNumber: 13,
                 columnNumber: 13
@@ -27267,7 +27274,7 @@ var _reactRouterDom = require("react-router-dom");
 const Header = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "flex justify-between items-center shadow-lg",
+            className: "flex justify-between items-center shadow-lg w-full fixed top-0 bg-white",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -33520,8 +33527,6 @@ var _restCard = require("./RestCard");
 var _restCardDefault = parcelHelpers.interopDefault(_restCard);
 var _const = require("../../utils/const");
 var _react = require("react");
-var _restCardCss = require("../CSS/RestCard.css");
-var _buttonsCss = require("../CSS/Buttons.css");
 var _shimmer = require("./Shimmer");
 var _shimmerDefault = parcelHelpers.interopDefault(_shimmer);
 var _reactRouterDom = require("react-router-dom");
@@ -33531,7 +33536,7 @@ const Body = ()=>{
     let [cardData, setCardData] = (0, _react.useState)([]);
     let [cardDataCopy, setCardDataCopy] = (0, _react.useState)([]);
     let [btnName, setBtnName] = (0, _react.useState)("Top Rated");
-    let [searchRes, setSearchRes] = (0, _react.useState)();
+    let [searchRes, setSearchRes] = (0, _react.useState)("");
     let [searchBtn, setSearchBtn] = (0, _react.useState)("Search");
     (0, _react.useEffect)(()=>{
         getApiInfo();
@@ -33549,13 +33554,13 @@ const Body = ()=>{
     };
     return cardData.length == 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/Body.js",
-        lineNumber: 46,
+        lineNumber: 45,
         columnNumber: 37
     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "ButtonsInBody",
+                    className: "flex  justify-around ",
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -33571,23 +33576,22 @@ const Body = ()=>{
                                         setBtnName("Top Rated");
                                     }
                                 },
-                                className: "Button1",
+                                className: "bg-gray-300 text-gray-900 text-lg p-1.5 rounded-lg hover:-translate-y-1 transform   transition",
                                 children: btnName
                             }, void 0, false, {
                                 fileName: "src/components/Body.js",
-                                lineNumber: 52,
+                                lineNumber: 51,
                                 columnNumber: 21
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/Body.js",
-                            lineNumber: 50,
+                            lineNumber: 49,
                             columnNumber: 20
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             children: [
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                    className: "searchInput",
-                                    placeholder: "!....S....E....A....R....C....H",
+                                    className: "border  hover:border-2 hover:border-gray-600 hover:rounded-l-lg p-1.5 ",
                                     value: searchRes,
                                     onChange: (event)=>{
                                         setSearchRes(event.target.value);
@@ -33622,7 +33626,7 @@ const Body = ()=>{
                                     //     setCardData(cardData) ;
                                     // }
                                     },
-                                    className: "searchBtn",
+                                    className: "bg-indigo-500 text-gray-200 text-lg p-1.5 rounded-r-lg hover:bg-indigo-400 ",
                                     children: searchBtn
                                 }, void 0, false, {
                                     fileName: "src/components/Body.js",
@@ -33638,11 +33642,11 @@ const Body = ()=>{
                     ]
                 }, void 0, true, {
                     fileName: "src/components/Body.js",
-                    lineNumber: 49,
+                    lineNumber: 48,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "MainDivForCards",
+                    className: " grid gap-14 mx-40 mt-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4",
                     children: cardDataCopy.map((infoCard)=>{
                         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -33677,16 +33681,16 @@ const Body = ()=>{
             ]
         }, void 0, true, {
             fileName: "src/components/Body.js",
-            lineNumber: 48,
+            lineNumber: 47,
             columnNumber: 13
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/Body.js",
-        lineNumber: 47,
+        lineNumber: 46,
         columnNumber: 9
     }, undefined);
 };
-_s(Body, "uq811AA0E7Lz6RH0Xco9BIMM4Y8=");
+_s(Body, "sLlIja0jOn2+deJBmAridvjcLN0=");
 _c = Body;
 exports.default = Body;
 var _c;
@@ -33697,7 +33701,7 @@ $RefreshReg$(_c, "Body");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","./RestCard":"9EGUp","../../utils/const":"c5jTt","react":"21dqq","../CSS/RestCard.css":"dvJuq","../CSS/Buttons.css":"1AYMU","./Shimmer":"g6ZGj","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9EGUp":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","./RestCard":"9EGUp","../../utils/const":"c5jTt","react":"21dqq","./Shimmer":"g6ZGj","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9EGUp":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$a297 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -33707,22 +33711,21 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _restCardCss = require("../CSS/RestCard.css");
 const RestCard = (props)=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "CardRestaurant",
+            className: " hover:shadow-lg pb-2 border-gray-900 hover:rounded-3xl hover:bg-gray-50",
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                     src: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + props?.RestaurantData.info?.cloudinaryImageId,
-                    width: "250px",
-                    className: "ImgInCard"
+                    className: "w-64 h-52 object-cover object-center rounded-3xl"
                 }, void 0, false, {
                     fileName: "src/components/RestCard.js",
                     lineNumber: 15,
                     columnNumber: 21
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                    className: "ml-3",
                     children: props?.RestaurantData.info?.name
                 }, void 0, false, {
                     fileName: "src/components/RestCard.js",
@@ -33730,6 +33733,7 @@ const RestCard = (props)=>{
                     columnNumber: 21
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    className: "ml-3",
                     children: props?.RestaurantData.info?.avgRatingString
                 }, void 0, false, {
                     fileName: "src/components/RestCard.js",
@@ -33737,6 +33741,7 @@ const RestCard = (props)=>{
                     columnNumber: 21
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                    className: "ml-3",
                     children: props?.RestaurantData.info?.areaName
                 }, void 0, false, {
                     fileName: "src/components/RestCard.js",
@@ -33765,7 +33770,7 @@ $RefreshReg$(_c, "RestCard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","../CSS/RestCard.css":"dvJuq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dvJuq":[function() {},{}],"c5jTt":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"c5jTt":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "CARD_URL", ()=>CARD_URL);
@@ -33777,7 +33782,7 @@ const CARD_URL2 = "https://www.swiggy.com/dapi/restaurants/list/update";
 const RES_DETAILS_URL = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9715987&lng=77.5945627&restaurantId=";
 const IMG_IN_MENU = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dvJuq":[function() {},{}],"1AYMU":[function() {},{}],"g6ZGj":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"g6ZGj":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$0b04 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

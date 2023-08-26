@@ -10,7 +10,10 @@ const HomePage = ()=> {
 
        <div>
             <Header />
-            <Outlet />    
+            <div className="mt-36"> 
+            <Outlet />
+            </div>
+               
        </div>
     )
 }

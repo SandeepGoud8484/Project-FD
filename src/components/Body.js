@@ -2,8 +2,7 @@ import RestCard from "./RestCard" ;
 import { CARD_URL } from "../../utils/const" ;
 import { CARD_URL2 } from "../../utils/const";
 import { useEffect, useState } from "react";
-import "../CSS/RestCard.css" ;
-import "../CSS/Buttons.css" ;
+
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 
@@ -13,7 +12,7 @@ const Body = () => {
     let[ cardData , setCardData ] = useState([]) ;
     let[ cardDataCopy , setCardDataCopy ] = useState([]) ;
     let[ btnName , setBtnName ] = useState("Top Rated") ;
-    let[ searchRes , setSearchRes ] = useState() ;
+    let[ searchRes , setSearchRes ] = useState("") ;
     let[ searchBtn , setSearchBtn ] = useState("Search") ;
    
 
@@ -46,7 +45,7 @@ const Body = () => {
     return  cardData.length == 0 ? (<Shimmer />) :(
         <div>
             <div>
-                <div className="ButtonsInBody">
+                <div className="flex  justify-around ">
                    <div>
                      
                     <button onClick={ () => {
@@ -64,12 +63,13 @@ const Body = () => {
                             setBtnName("Top Rated") ;
                         }
 
-                    }} className="Button1">{btnName}</button>
+                    }} className="bg-gray-300 text-gray-900 text-lg p-1.5 rounded-lg hover:-translate-y-1 transform
+                    transition">{btnName}</button>
 
                    </div>
 
                    <div>
-                     <input className="searchInput" placeholder="!....S....E....A....R....C....H" value={searchRes} onChange={(event)=>{
+                     <input className="border  hover:border-2 hover:border-gray-600 hover:rounded-l-lg p-1.5 " value={searchRes} onChange={(event)=>{
 
                         setSearchRes(event.target.value) ;
 
@@ -112,13 +112,13 @@ const Body = () => {
                         //     setCardData(cardData) ;
                         // }
                             
-                     }} className="searchBtn">{searchBtn}</button>
+                     }} className="bg-indigo-500 text-gray-200 text-lg p-1.5 rounded-r-lg hover:bg-indigo-400 ">{searchBtn}</button>
 
 
                    </div>
                 </div>              
 
-                <div className="MainDivForCards">
+                <div className=" grid gap-14 mx-40 mt-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     { cardDataCopy.map( (infoCard ) => {
                     return (
                        <div>
