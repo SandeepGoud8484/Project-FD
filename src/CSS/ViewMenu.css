@@ -1,0 +1,42 @@
+
+
+.DivForMenu{
+
+    margin: 0 340px;
+    padding: 50px 10px;
+    display: flex;
+    
+    width: 820px;
+    justify-content: space-between;
+    border-bottom: 2px solid gainsboro;
+    align-items: center;
+   
+}
+
+
+
+
+.ImgInMenu img {
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.description {
+
+    font-weight: lighter;
+    color: gray;
+    font-size: small;
+    margin-top: 30px;
+}
+
+.MenuList p:first-child {
+
+    font-size: x-large;
+    
+}
+
+.MenuList p:last-child {
+
+    font-size: large;
+    
+}

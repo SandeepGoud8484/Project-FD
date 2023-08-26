@@ -1,0 +1,18 @@
+
+
+.oorkeIcha {
+
+    background-color: rgb(2, 2, 43);
+    width: 100%;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}    
+
+.oorkeIcha h1 {
+
+    color: white;
+    font-size: 50px;
+    font-family: cursive;
+}

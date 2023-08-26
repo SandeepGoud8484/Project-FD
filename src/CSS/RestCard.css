@@ -1,0 +1,53 @@
+.MainDivForCards {  
+
+    /* Idi Body.js lo unde Classname ki ichaa , ekkada use chesa ani Confuse avvaku.. */
+
+    display: grid;
+    grid-template-columns: auto auto auto auto ;
+    row-gap: 50px;
+    /* column-gap: 30px; */
+    padding: 30px 100px;
+    
+}
+
+.CardRestaurant {
+
+    
+    width: 250px ;
+    border-radius: 20px;
+    
+    
+}
+
+
+
+.ImgInCard {
+
+    height: 200px;
+    border-radius: 20px;
+    box-shadow: 0px 3px 8px -3px rgba(100, 94, 94, 0.774);
+}
+
+.ImgInCard:hover {
+
+    width:230px;
+    height:180px;
+} 
+
+.CardRestaurant p {
+
+    margin: 10px 10px;
+   
+   
+}
+
+.MainDivForCards a {
+    text-decoration: none;
+    color: black;
+}
+
+.CardRestaurant h3 {
+    font-weight: 500;
+    color: grey;
+
+}
