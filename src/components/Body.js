@@ -1,10 +1,11 @@
-import RestCard from "./RestCard" ;
+import RestCard , {RestCardWithOffers} from "./RestCard" ;
 import { CARD_URL } from "../../utils/const" ;
 import { CARD_URL2 } from "../../utils/const";
 import { useEffect, useState } from "react";
-
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import { RestCardWithOffers } from "./RestCard";
+import OfferCard from "./OffCards";
 
 
 const Body = () => {
@@ -14,6 +15,9 @@ const Body = () => {
     let[ btnName , setBtnName ] = useState("Top Rated") ;
     let[ searchRes , setSearchRes ] = useState("") ;
     let[ searchBtn , setSearchBtn ] = useState("Search") ;
+   
+
+    const FoodCardWithOffer = RestCardWithOffers(RestCard) ;
    
 
 
@@ -28,10 +32,11 @@ const Body = () => {
         fetch( CARD_URL ).then((res)=>{
             return res.json();
         }).then((resData)=>{
-
+            console.log(resData);
             setCardData(resData.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants) ;
             setCardDataCopy(resData.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants) ;
-              console.log(resData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+            //   console.log(resData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+            setOffers(resData?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info) ;
            
         }).catch(()=>{
 
@@ -42,7 +47,7 @@ const Body = () => {
 
     
 
-    return  cardData.length == 0 ? (<Shimmer />) :(
+    return  cardData.length == 0 ? (<Shimmer />) : (
         <div>
             <div>
                 <div className="flex  justify-around ">
@@ -120,14 +125,17 @@ const Body = () => {
 
                 <div className=" grid gap-14 mx-40 mt-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     { cardDataCopy.map( (infoCard ) => {
-                    return (
-                       <div>
-                       
-                         <Link to={'/restaurants/' + infoCard.info.id}> <RestCard RestaurantData = {infoCard}/> </Link>
-                        
-                       </div>
-                        
-                    )
+
+                        console.log(infoCard);
+ 
+                    return <Link to={'/restaurants/' + infoCard.info.id}>
+                                {
+                                    // cardDataCopy?.info?.aggregatedDiscountInfoV3?.header ? 
+                                    // <FoodCardWithOffer CardInfo={infoCard}/>   : 
+                                    <RestCard RestaurantData = {infoCard} key={infoCard?.RestaurantData?.info?.id} />
+                                }
+                            </Link>
+
                         })                           
                         }
                 </div>
