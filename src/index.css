@@ -7,6 +7,12 @@
     .hovCol{
        @apply hover:text-green-500 
      }
-}
+    .pos{
+      position: absolute ;
+      top: 171px ;
+      background-color: rgba(0, 0, 0, 0.363)
+    }
+} 
+
 
 @tailwind utilities;
