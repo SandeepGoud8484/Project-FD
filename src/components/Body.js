@@ -4,7 +4,6 @@ import { CARD_URL2 } from "../../utils/const";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-import { RestCardWithOffers } from "./RestCard";
 import OfferCard from "./OffCards";
 
 
@@ -32,11 +31,30 @@ const Body = () => {
         fetch( CARD_URL ).then((res)=>{
             return res.json();
         }).then((resData)=>{
-            console.log(resData);
-            setCardData(resData.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants) ;
-            setCardDataCopy(resData.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants) ;
-            //   console.log(resData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+             console.log(resData);
+            //   resData?.data?.cards?.map((gridWidgets)=>{
+                
+            //      return gridWidgets.map((impData)=>{
+            //          return impData.card?.card?.gridElements?.infoWithStyle['@type'] = "type.googleapis.com/swiggy.presentation.food.v2.FavouriteRestaurantInfoWithStyle" ?
+            //                    setCardData(impData.card?.card?.gridElements?.infoWithStyle?.restaurants)  
+            //                     && setCardDataCopy(impData.card?.card?.gridElements?.infoWithStyle?.restaurants) 
+            //                 :  setCardData("No Data")
+            //                      && setCardDataCopy("No Data") 
+            
+            //        })
+            //     })
+            //     gridWidgets?.card?.card?.gridElements?.infoWithStyle?['@type'] = "type.googleapis.com/swiggy.presentation.food.v2.FavouriteRestaurantInfoWithStyle" ? 
+            //      cardRest(gridWidgets)  :  
+            //      setCardData("No Data") , setCardDataCopy("No Data") ;
+
+
+            //................Here at cards[5] we will get 9 restaurants Data, and sometimes it changes to card[3]...............................
+            
+            setCardData(resData.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants) ;
+            setCardDataCopy(resData.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants) ;
+            //  console.log(resData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
             setOffers(resData?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info) ;
+            
            
         }).catch(()=>{
 
@@ -45,9 +63,18 @@ const Body = () => {
          })
     }
 
+    // const cardRest = (gridWidgets)=> {
+    
+    //         console.log("yes") ;
+    //         setCardData(gridWidgets?.card?.card?.gridElements?.infoWithStyle?.restaurants) ;
+    //         setCardDataCopy(gridWidgets?.card?.card?.gridElements?.infoWithStyle?.restaurants) ;
+           
+        
+    // }
+
     
 
-    return  cardData.length == 0 ? (<Shimmer />) : (
+    return  cardData?.length == 0 ? (<Shimmer />) : (
         <div>
             <div>
                 <div className="flex  justify-around ">
@@ -124,15 +151,13 @@ const Body = () => {
                 </div>              
 
                 <div className=" grid gap-14 mx-40 mt-16 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    { cardDataCopy.map( (infoCard ) => {
-
-                        console.log(infoCard);
- 
-                    return <Link to={'/restaurants/' + infoCard.info.id}>
+                    { cardDataCopy?.map( (infoCard) => {
+                        // console.log(infoCard);
+                        return <Link to={'/restaurants/' + infoCard.info.id}>
                                 {
-                                    // cardDataCopy?.info?.aggregatedDiscountInfoV3?.header ? 
-                                    // <FoodCardWithOffer CardInfo={infoCard}/>   : 
-                                    <RestCard RestaurantData = {infoCard} key={infoCard?.RestaurantData?.info?.id} />
+                                    infoCard.info.aggregatedDiscountInfoV3?.header  ? 
+                                    <FoodCardWithOffer RestaurantData={infoCard}/>   : 
+                                    <RestCard RestaurantData={infoCard}  />
                                 }
                             </Link>
 

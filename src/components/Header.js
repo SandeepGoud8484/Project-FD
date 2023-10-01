@@ -1,9 +1,13 @@
 
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 
 
 
 const Header = ( ) => {
+
+
+    const cartItems = useSelector((state) => state.cart.items) ;
 
 
     return (
@@ -21,7 +25,9 @@ const Header = ( ) => {
                         <li className="hovCol"><Link to="/Offers">Offers</Link></li>
                         <li className="hovCol">Help</li>
                         <li className="hovCol">Sign in</li>
-                        <li className="hovCol"><Link to="/cart">Cart</Link></li>
+                        { cartItems.length > 0 ? <li className="hovCol"><Link to="/cart">Cart&nbsp;<span  className="border-2 border-black rounded-3xl px-1">{cartItems.length}</span></Link></li> :
+                        <li className="hovCol"><Link to="/cart">Cart</Link></li> }
+                        
                     </ul>
                 </div>
             </div>
